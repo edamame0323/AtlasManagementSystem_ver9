@@ -67,7 +67,12 @@ class User extends Authenticatable
     }
 
     public function subjects(){
-        return ;// リレーションの定義
+        return $this->belongsToMany(
+            Subjects::class,
+            'subject_users',
+            'user_id',
+            'subject_id'
+        );// ユーザーに関連する教科を取得するの定義
     }
 
     // いいねしているかどうか
